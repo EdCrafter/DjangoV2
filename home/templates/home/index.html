@@ -7,18 +7,20 @@
 </head>
 <body>
   <div class="w3-container w3-teal">
-    <h1 class="w3-center">Онлайн система прокату автомобілів<h1>
+    <h1 class="w3-center">Смачнісімо<h1>
   </div>
-  <div class="w3-center w3-bar w3-black w3-large">Ласкаво просимо до системи прокату авто</div><br><br>
-  <div class="w3-display-container" style="height:400px;">
-    <div class="w3-display-middle">
-
+  <div class="w3-center w3-bar w3-orange w3-large">Всі страви на всі смаки</div><br><br>
+  <div class="w3-display-container " style="height:400px;">
+    <div class="w3-display-middle w3-padding-large" style='color: 6f00ff'>
+  <div class="w3-center w3-bar  w3-xxxlarge w3-padding-16">
+    Завітайте!!!
+  </div>
   <form class="w3-container w3-center" action="/customer_portal/login/" mehtod="POST">{% csrf_token %}
-    <input class="w3-indigo w3-btn w3-large w3-padding-16" type="submit" value="Ввійти як клієнт">
+    <input class="w3-pale-red w3-btn w3-large w3-padding-16" type="submit" value="Ввійти як клієнт">
   </form>
 <br>
   <form class="w3-container w3-center" action="/car_dealer_portal/login/" method="POST">{% csrf_token %}
-    <input class="w3-btn w3-indigo w3-large w3-padding-16" type="submit" value="Ввійти як кухар">
+    <input class="w3-btn w3-pale-red w3-large w3-padding-16" type="submit" value="Ввійти як кухар">
   <form>
   </div>
 </div>
