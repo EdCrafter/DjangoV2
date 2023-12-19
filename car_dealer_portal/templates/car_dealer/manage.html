@@ -1,0 +1,39 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+<div class="w3-bar w3-black w3-large">
+  <div class="w3-bar-item w3-left w3-black">Портал автодилера: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/logout/">Вихід із системи</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right " href="/car_dealer_portal/auth/">Головна</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/order_list/">Замовлення</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/manage_vehicles/">Автомобілі</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/history/">Прибуток</a>
+</div>
+<h3 class="w3-center" style="padding-top:30"><b>Розміщені транспортні засоби</b></h3>
+<div style="padding:18">
+<table class="w3-table w3-striped w3-center">
+
+  <tr>
+    <th style="padding:20;">Машина </th>
+    <th style="padding:20;">Колір </th>
+    <th style="padding:20;">Місткість </th>
+    <th style="padding:20;">PIN-код </th>
+    <th style="padding:20;">Адреса</th>
+    <th style="padding:20;">Дії</th>
+  </tr>
+  {% for vehicle in vehicle_list %}
+  <tr>
+      <td>{{vehicle.car_name}}</td>
+      <td>{{vehicle.color}}</td>
+      <td>{{vehicle.capacity}} сидінь </td>
+      <td>{{vehicle.area.pincode}}</td>
+      <td>{{vehicle.area.city}}</td>
+      <td><form action = "/car_dealer_portal/delete/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{vehicle.id}}">
+        <input class="w3-btn w3-red" type="submit" value="Видалити">
+      </form></td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

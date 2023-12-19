@@ -1,0 +1,21 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+
+<div class="w3-bar w3-large w3-black">
+  <div class="w3-bar-item w3-left w3-black">Клієнтський портал: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/logout/">Вихід із системи</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/manage/">Керувати</a>
+  <a class="w3-ber-item w3-btn w3-teal w3-right" href="/customer_portal/search/">Пошук машин</a>
+</div>
+<div class="w3-containet w3-center" style="padding:100px  ">
+<b>Машина : {{vehicle.car_name}}</b>
+<form class="w3-container" action="/customer_portal/confirmed/" method="post">
+  {% csrf_token %}
+  <b>Ціна : ${{cost_per_day}} в день</b><br><br>
+  <lable>Скільки днів?</lable> <input type="text" placeholder="2" name="days"><br><br>
+  <input class="w3-btn w3-teal" type="submit"  value="Підтвердьте моє замовлення"><br><br>
+  <input type="hidden" value="{{vehicle.id}}" name="id">
+  <br><br>
+</from>
+</div>
+{% endblock %}

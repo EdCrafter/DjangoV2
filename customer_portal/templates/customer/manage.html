@@ -1,0 +1,48 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+<div class="w3-bar w3-large w3-black">
+  <div class="w3-bar-item w3-left w3-black">Клієнтський портал: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/logout/">Вихід із системи</a>
+  <a class="w3-ber-item w3-btn w3-teal w3-right" href="/customer_portal/search/">Пошук машин</a>
+</div>
+<h3 class="w3-center" style="padding-top:20"><b>Ваші накази</b></h3>
+<div class="w3-center" style="padding:50px;">
+<table class="w3-table w3-striped w3-center">
+
+
+  <tr>
+    <th>Авто</th>
+    <th>Дні</th>
+    <th>Оренда</th>
+    <th>Місткість</th>
+    <th>Опис</th>
+    <th>PIN-код</th>
+    <th>Дії</th>
+  </tr>
+  {% for order in od %}
+  <tr>
+    <td>{{order.vehicle.car_name}}</td>
+    <td>{{order.days}}</td>
+    <td>${{order.rent}}</td>
+    <td>{{order.vehicle.capacity}} сидінь</td>
+    <td>{{order.vehicle.description}}</td>
+    <td>{{order.vehicle.area.pincode}}</td>
+    <td>
+      <form action = "/customer_portal/delete/" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="id" value="{{order.id}}">
+      <input class="w3-btn w3-red" type="submit" value="Видалити">
+    </form>
+<!--   
+    <form action = "/customer_portal/update/" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="id" value="{{order.id}}">
+      <input class="w3-btn w3-indigo" type="submit" value="Update">
+    </form> -->
+  </td>
+  </tr>
+
+{% endfor %}
+</table>
+</div>
+{% endblock %}

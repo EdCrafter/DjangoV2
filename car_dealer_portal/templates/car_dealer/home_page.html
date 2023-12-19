@@ -1,0 +1,33 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="w3-bar w3-large w3-black">
+  <div class="w3-bar-item w3-left w3-black">Портал автодилера: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/logout/">Вихід із системи</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/order_list/">Замовлення</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/manage_vehicles/">Автомобілі</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/history/">Прибуток</a>
+</div>
+
+<div class="w3-display-container" style="height:800px;">
+  <div class="w3-display-left" style="padding-left: 200px;">
+
+<h3 class="w3-container w3-bar w3-black w3-large" style="padding:8px"><center>Пост про авто<center></h3>
+
+<form class="w3-container" action="/car_dealer_portal/add_vehicle/" method="post">{% csrf_token %}
+  <lable>Назва автомобіля :</lable> <input class="w3-input" type="text" name="car_name"><br><br>
+  <lable>Колір :</lable> <input class="w3-input" type="text" name="color"><br><br>
+  <lable>Місто :</lable> <input class="w3-input" type="text" name="city"><br><br>
+  <lable>PIN-код</lable> <input class="w3-input" type="text" name="pincode"><br><br>
+  <lable>Опис :</lable> <input class="w3-input" type="text" name="description"><br><br>
+  <lable>Місткість (посадочні місця) :</lable> <input class="w3-input" type="text" name="capacity"><br><br>
+  <input class="w3-btn w3-green" type="submit" value="Додати авто"><br><br>
+<form>
+</div>
+
+<div class = "w3-display-right">
+  <img src="{% static "images/car.jpg" %}" width="750px">
+</div>
+
+{% endblock %}

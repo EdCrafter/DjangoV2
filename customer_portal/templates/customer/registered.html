@@ -1,0 +1,17 @@
+{% extends 'car_dealer/base.html' %}
+{% block content %}
+{% csrf_token %}
+<div class="w3-bar w3-black">
+  <div class="w3-bar-item w3-left">Реєстраційна форма</div>
+  <a class="w3-bar-item w3-right w3-btn w3-teal" href="/customer_portal/login/">Логін</a>
+  <a class="w3-bar-item w3-right w3-btn w3-teal" href="/">Головна</a>
+</div>
+<div class="w3-center">
+<p class="w3-large">
+Успішна реєстрація!
+</p>
+<p class="w3-large">
+Тепер переходьте до <a class="w3-btn w3-teal" href="/customer_portal/login/">Сторінки входу<a> і увійдіть в систему!
+</p>
+</div>
+{% endblock %}
