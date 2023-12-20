@@ -1,8 +1,8 @@
-{% extends 'car_dealer/base.html' %}
+{% extends 'chef/base.html' %}
 {% block content %}
 <div class="item-bar">
  
-  <a class="item-bar-item item-right item-btn item-teal" href="/car_dealer_portal/login/">Логін</a>
+  <a class="item-bar-item item-right item-btn item-teal" href="/chef_portal/login/">Логін</a>
   <a class="item-bar-item item-right item-btn item-teal" href="/">Головна</a>
 </div>
 <div class="item-display-container"  style="height:1000px;">
@@ -10,7 +10,7 @@
 
   <b> <h2>Реєстраційна форма</h2></b>
 
-<form class="item-container" action="/car_dealer_portal/registration/" method="POST">{% csrf_token %}
+<form class="item-container" action="/chef_portal/registration/" method="POST">{% csrf_token %}
   <lable>Ім'я</lable> <input class="item-input" type="text" name="firstname"><br><br>
   <lable>Прізвище</lable> <input class="item-input" type="text" name="lastname"><br><br>
   <lable>Ім'я користувача</lable> <input class="item-input" type="text" name="username"><br><br>

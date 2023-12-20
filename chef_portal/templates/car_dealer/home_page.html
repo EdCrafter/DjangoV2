@@ -1,13 +1,13 @@
-{% extends 'car_dealer/base.html' %}
+{% extends 'chef/base.html' %}
 {% block content %}
 {% load static %}
 
 <div class="item-bar item-large item-flex-center item-flex-center">
   <div class="item-bar-item item-left item-green">Кухар: {{user.username}}</div>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/car_dealer_portal/logout/">Вийти</a>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/car_dealer_portal/order_list/">Замовлення</a>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/car_dealer_portal/manage_vehicles/">Столики</a>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/car_dealer_portal/history/">Прибуток</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_portal/logout/">Вийти</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_portal/order_list/">Замовлення</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_portal/manage_vehicles/">Столики</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_portal/history/">Прибуток</a>
 </div>
 
 <div class="item-display-container" style="height:800px;">
@@ -15,7 +15,7 @@
 
 <h3 class="item-container item-bar item-yellow item-large" style="padding:8px"><center>Додайте столик<center></h3>
 
-<form class="item-container  item-transblue" action="/car_dealer_portal/add_vehicle/" method="post">{% csrf_token %}
+<form class="item-container  item-transblue" action="/chef_portal/add_vehicle/" method="post">{% csrf_token %}
   <lable>Номер :</lable> <input class="item-input" type="text" name="table_name"><br><br>
   <lable>Форма :</lable> <input class="item-input" type="text" name="shape"><br><br>
   <lable>Адреса :</lable> <input class="item-input" type="text" name="city"><br><br>

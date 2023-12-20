@@ -12,6 +12,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='customer',
             name='area',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='car_dealer_portal.Area'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='chef_portal.Area'),
         ),
     ]

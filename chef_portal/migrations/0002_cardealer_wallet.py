@@ -4,7 +4,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('car_dealer_portal', '0001_initial'),
+        ('chef_portal', '0001_initial'),
     ]
 
     operations = [

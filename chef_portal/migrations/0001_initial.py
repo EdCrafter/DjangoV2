@@ -26,8 +26,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('mobile', models.CharField(max_length=13, validators=[django.core.validators.MinLengthValidator(10), django.core.validators.MaxLengthValidator(13)])),
-                ('area', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='car_dealer_portal.Area')),
-                ('car_dealer', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('area', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='chef_portal.Area')),
+                ('chef', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -39,8 +39,8 @@ class Migration(migrations.Migration):
                 ('seats', models.CharField(max_length=2)),
                 ('is_available', models.BooleanField(default=True)),
                 ('size', models.CharField(max_length=100)),
-                ('area', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='car_dealer_portal.Area')),
-                ('dealer', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='car_dealer_portal.CarDealer')),
+                ('area', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='chef_portal.Area')),
+                ('dealer', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='chef_portal.CarDealer')),
             ],
         ),
     ]

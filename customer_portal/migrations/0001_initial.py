@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('car_dealer_portal', '0001_initial'),
+        ('chef_portal', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('mobile', models.CharField(max_length=13, validators=[django.core.validators.MinLengthValidator(10), django.core.validators.MaxLengthValidator(13)])),
-                ('area', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='car_dealer_portal.Area')),
+                ('area', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='chef_portal.Area')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
@@ -29,9 +29,9 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('rent', models.CharField(max_length=8)),
                 ('days', models.CharField(max_length=3)),
-                ('car_dealer', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='car_dealer_portal.CarDealer')),
+                ('chef', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='chef_portal.CarDealer')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL)),
-                ('vehicle', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='car_dealer_portal.Vehicles')),
+                ('vehicle', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='chef_portal.Vehicles')),
             ],
         ),
     ]

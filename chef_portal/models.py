@@ -9,7 +9,7 @@ class Area(models.Model):
     city = models.CharField(max_length = 20)
 
 class CarDealer(models.Model):
-    car_dealer = models.OneToOneField(User, on_delete=models.CASCADE)
+    chef = models.OneToOneField(User, on_delete=models.CASCADE)
     mobile = models.CharField(validators = [MinLengthValidator(10), MaxLengthValidator(13)], max_length = 13)
     area = models.OneToOneField(Area, on_delete=models.PROTECT)
     wallet = models.IntegerField(default = 0)

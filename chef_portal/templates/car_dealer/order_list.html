@@ -1,12 +1,12 @@
-{% extends 'car_dealer/base.html' %}
+{% extends 'chef/base.html' %}
 {% block content %}
 <div class="item-bar item-large item-flex-center">
   <div class="item-bar-item item-left item-green">Кухар: {{user.username}}</div>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/car_dealer_portal/logout/">Вийти</a>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow " href="/car_dealer_portal/auth/">Головна</a>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/car_dealer_portal/order_list/">Замовлення</a>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/car_dealer_portal/manage_vehicles/">Столики</a>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/car_dealer_portal/history/">Прибуток</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_portal/logout/">Вийти</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow " href="/chef_portal/auth/">Головна</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_portal/order_list/">Замовлення</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_portal/manage_vehicles/">Столики</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_portal/history/">Прибуток</a>
 </div>
 <h3 class="item-center " style="padding-top:30"><b class="item-pale-green">Перелік замовлень на столик</b></h3>
 <div style="padding:18">
@@ -29,7 +29,7 @@
     <td>{{order.vehicle.color}}</td>
     <td>${{order.rent}}</td>
     <td>{{order.days}}</td>
-    <td><form action = "/car_dealer_portal/complete/" method="post">
+    <td><form action = "/chef_portal/complete/" method="post">
       {% csrf_token %}
       <input type="hidden" name="id" value="{{order.id}}">
       <input class="item-btn item-indigo" type="submit" value="Завершено">

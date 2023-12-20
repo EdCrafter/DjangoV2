@@ -1,5 +1,5 @@
 from django.urls import path,include
-from car_dealer_portal.views import *
+from chef_portal.views import *
 
 urlpatterns = [
     path('index/',index),
