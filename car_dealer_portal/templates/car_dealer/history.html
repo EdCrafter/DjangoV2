@@ -1,11 +1,11 @@
 {% extends 'car_dealer/base.html' %}
 {% block content %}
-<div class="w3-bar w3-large">
-  <div class="w3-bar-item w3-left w3-black">Портал автодилера: {{user.username}}</div>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/logout/">Вийти</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right " href="/car_dealer_portal/auth/">Головна</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/order_list/">Замовлення</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/car_dealer_portal/manage_vehicles/">Автомобілі</a>
+<div class="w3-bar w3-large w3-flex-center">
+  <div class="w3-bar-item w3-left w3-green w3-black">Портал автодилера: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/car_dealer_portal/logout/">Вийти</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow " href="/car_dealer_portal/auth/">Головна</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/car_dealer_portal/order_list/">Замовлення</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/car_dealer_portal/manage_vehicles/">Автомобілі</a>
   <div class="w3-bar-item w3-black w3-right" href="/car_dealer_portal/history/">Прибуток : ${{wallet}}</div>
 </div>
 <h3 class="w3-center" style="padding-top:30"><b>Історія</b></h3>

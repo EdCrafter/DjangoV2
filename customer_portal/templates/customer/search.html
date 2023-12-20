@@ -1,9 +1,9 @@
 {% extends 'customer/base.html' %}
 {% block content %}
-<div class="w3-bar w3-large w3-black">
-  <div class="w3-bar-item w3-left w3-black">Клієнтський портал: {{user.username}}</div>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/logout/">Вийти</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/manage/">Керувати</a>
+<div class="w3-bar w3-large w3-flex-center w3-black">
+  <div class="w3-bar-item w3-left w3-green w3-black">Клієнтський портал: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/customer_portal/logout/">Вийти</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/customer_portal/manage/">Керувати</a>
 </div>
 
 <div class="w3-display-container" style="height:300px;">
