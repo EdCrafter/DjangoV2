@@ -15,7 +15,7 @@ class CarDealer(models.Model):
     wallet = models.IntegerField(default = 0)
 
 class Vehicles(models.Model):
-    car_name = models.CharField(max_length = 20)
+    table_name = models.CharField(max_length = 20)
     color = models.CharField(max_length = 10)
     dealer = models.ForeignKey(CarDealer, on_delete = models.PROTECT)
     area = models.ForeignKey(Area, on_delete=models.SET_NULL, null = True)

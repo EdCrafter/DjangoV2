@@ -34,8 +34,8 @@ class Migration(migrations.Migration):
             name='Vehicles',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('car_name', models.CharField(max_length=20)),
-                ('color', models.CharField(max_length=10)),
+                ('table_name', models.CharField(max_length=20)),
+                ('shape', models.CharField(max_length=10)),
                 ('capacity', models.CharField(max_length=2)),
                 ('is_available', models.BooleanField(default=True)),
                 ('description', models.CharField(max_length=100)),

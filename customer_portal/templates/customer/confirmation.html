@@ -8,7 +8,7 @@
   <a class="w3-ber-item w3-btn w3-teal w3-right" href="/customer_portal/search/">Бронювати столик</a>
 </div>
 <div class="w3-containet w3-center" style="padding:100px  ">
-<b class="w3-orange w3-xxlarge" style="padding:3px 15px">Ваш столик - {{vehicle.car_name}}</b>
+<b class="w3-orange w3-xxlarge" style="padding:3px 15px">Ваш столик - {{vehicle.table_name}}</b>
 <form class="w3-container w3-form" action="/customer_portal/confirmed/" method="post">
   {% csrf_token %}
   <b class="w3-pale-red" >Ціна за годину : ${{cost_per_day}}</b><br><br>
