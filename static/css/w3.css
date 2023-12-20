@@ -246,6 +246,7 @@ a {
   border-spacing: 0;
   width: 100%;
   display: table;
+  background-color: aliceblue;
 }
 .w3-table-all {
   border: 1px solid #ccc;

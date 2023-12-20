@@ -6,7 +6,7 @@
   <div class="w3-bar-item w3-left w3-green">Кухар: {{user.username}}</div>
   <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/car_dealer_portal/logout/">Вийти</a>
   <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/car_dealer_portal/order_list/">Замовлення</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/car_dealer_portal/manage_vehicles/">Автомобілі</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/car_dealer_portal/manage_vehicles/">Столики</a>
   <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/car_dealer_portal/history/">Прибуток</a>
 </div>
 
@@ -17,12 +17,12 @@
 
 <form class="w3-container  w3-transblue" action="/car_dealer_portal/add_vehicle/" method="post">{% csrf_token %}
   <lable>Назва автомобіля :</lable> <input class="w3-input" type="text" name="car_name"><br><br>
-  <lable>Колір :</lable> <input class="w3-input" type="text" name="color"><br><br>
+  <lable>Форма :</lable> <input class="w3-input" type="text" name="color"><br><br>
   <lable>Місто :</lable> <input class="w3-input" type="text" name="city"><br><br>
   <lable>PIN-код</lable> <input class="w3-input" type="text" name="pincode"><br><br>
   <lable>Опис :</lable> <input class="w3-input" type="text" name="description"><br><br>
-  <lable>Місткість (посадочні місця) :</lable> <input class="w3-input" type="text" name="capacity"><br><br>
-  <input class="w3-btn w3-green" type="submit" value="Додати авто"><br><br>
+  <lable>К-ть місць (посадочні місця) :</lable> <input class="w3-input" type="text" name="capacity"><br><br>
+  <input class="w3-btn w3-green" type="submit" value="Додати"><br><br>
 <form>
 </div>
 

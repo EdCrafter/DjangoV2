@@ -1,7 +1,7 @@
 {% extends 'customer/base.html' %}
 {% block content %}
-<div class="w3-bar w3-large w3-flex-center w3-black">
-  <div class="w3-bar-item w3-left w3-green w3-black">Клієнтський портал: {{user.username}}</div>
+<div class="w3-bar w3-large w3-flex-center">
+  <div class="w3-bar-item w3-left w3-green">Клієнтський портал: {{user.username}}</div>
   <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/customer_portal/logout/">Вийти</a>
   <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/customer_portal/manage/">Керувати</a>
   <a class="w3-ber-item w3-btn w3-teal w3-right" href="/customer_portal/search/">Пошук машин</a>
@@ -13,7 +13,7 @@
 <h3><b>Замовлення виконано</b></h3>
 <b>Ваше замовлення на автомобіль оброблено!</b><br><br>
 <b>Загальна орендна плата :</b> ${{order.rent}}<br><br>
-<b>Транспортний засіб :</b> {{order.vehicle.car_name}}<br><br>
+<b>столик :</b> {{order.vehicle.car_name}}<br><br>
 <b>Тривалість :</b> {{order.days}} days<br><br>
 <b>Автомобільний дилер :</b> {{order.car_dealer.car_dealer.first_name}} {{order.car_dealer.car_dealer.last_name}}<br><br>
 <b>Контактна особа автодилера:</b> {{order.car_dealer.mobile}}<br><br>
