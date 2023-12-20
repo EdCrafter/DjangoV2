@@ -807,7 +807,7 @@ a {
   background-color: #3bfafa78;
 }
 
-.w3-transblue{
+.w3-transblue {
   background-color: #3bfafaba;
 }
 .w3-display-left {
@@ -1094,7 +1094,7 @@ a {
 .w3-justify {
   text-align: justify !important;
 }
-.w3-flex-center{
+.w3-flex-center {
   display: flex;
   justify-content: center;
 }
@@ -1314,6 +1314,13 @@ a {
 .w3-hover-white:hover {
   color: #000 !important;
   background-color: #fff !important;
+}
+.w3-form {
+  background-color: #18d93ddb !important;
+  width: 500px;
+  padding-top: 20px;
+  margin-left: 330px;
+  margin-top: 20px;
 }
 .w3-black,
 .w3-hover-black:hover {

@@ -4,16 +4,16 @@
 <div class="w3-bar w3-large w3-flex-center">
   <div class="w3-bar-item w3-left w3-green">Клієнтський портал: {{user.username}}</div>
   <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/customer_portal/logout/">Вийти</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/customer_portal/manage/">Керувати</a>
-  <a class="w3-ber-item w3-btn w3-teal w3-right" href="/customer_portal/search/">Пошук машин</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/customer_portal/manage/">Замовлення</a>
+  <a class="w3-ber-item w3-btn w3-teal w3-right" href="/customer_portal/search/">Бронювати столик</a>
 </div>
 <div class="w3-containet w3-center" style="padding:100px  ">
-<b>Столик : {{vehicle.car_name}}</b>
-<form class="w3-container" action="/customer_portal/confirmed/" method="post">
+<b class="w3-orange w3-xxlarge" style="padding:3px 15px">Ваш столик - {{vehicle.car_name}}</b>
+<form class="w3-container w3-form" action="/customer_portal/confirmed/" method="post">
   {% csrf_token %}
-  <b>Ціна : ${{cost_per_day}} в день</b><br><br>
-  <lable>Скільки днів?</lable> <input type="text" placeholder="2" name="days"><br><br>
-  <input class="w3-btn w3-teal" type="submit"  value="Підтвердьте моє замовлення"><br><br>
+  <b class="w3-pale-red" >Ціна за годину : ${{cost_per_day}}</b><br><br>
+  <lable>На скільки часу :</lable> <input type="text" placeholder="1hour" name="days"><br><br>
+  <input class="w3-btn w3-red" type="submit"  value="Підтвердьте замовлення"><br><br>
   <input type="hidden" value="{{vehicle.id}}" name="id">
   <br><br>
 </from>

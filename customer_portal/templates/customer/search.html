@@ -3,7 +3,7 @@
 <div class="w3-bar w3-large w3-flex-center">
   <div class="w3-bar-item w3-left w3-green">Клієнтський портал: {{user.username}}</div>
   <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/customer_portal/logout/">Вийти</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/customer_portal/manage/">Керувати</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right w3-pale-yellow" href="/customer_portal/manage/">Замовлення</a>
 </div>
 
 <div class="w3-display-container" style="height:300px;">
@@ -12,7 +12,7 @@
 <form class="w3-container" action="/customer_portal/search_results/" method="post">
   {% csrf_token %}
   <br><br>
-  <lable>Введіть назву міста:</lable> <input class="w3-input" type="text" name="city"><br><br>
+  <lable>Адреса:</lable> <input class="w3-input" type="text" name="city"><br><br>
   <input class="w3-btn w3-green" type="submit" value="Пошук">
 </form>
 
