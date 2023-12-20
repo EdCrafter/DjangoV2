@@ -2,16 +2,16 @@
 
 {% block content %}
 
-<div class="w3-display-container" style="height:500px;">
-  <div class="w3-display-middle">
-      <form class = "w3-container" action="/car_dealer_portal/auth/" method="POST">{% csrf_token %}
-        <lable>Ім'я користувача</lable>  <input class="w3-input" type="text" name="username"><br><br>
-        <lable>Пароль</lable>  <input class="w3-input" type="password" name="password"><br><br>
-        <input class="w3-btn w3-green" type="submit" value="Логін">
+<div class="item-display-container" style="height:500px;">
+  <div class="item-display-middle">
+      <form class = "item-container" action="/car_dealer_portal/auth/" method="POST">{% csrf_token %}
+        <lable>Ім'я користувача</lable>  <input class="item-input" type="text" name="username"><br><br>
+        <lable>Пароль</lable>  <input class="item-input" type="password" name="password"><br><br>
+        <input class="item-btn item-green" type="submit" value="Логін">
       </form><br><br>
-      <div class="w3-container">
-        <a class="w3-btn w3-red" href="/car_dealer_portal/register/">Зареєструйтесь як кухар</a>
-        <a class="w3-btn w3-teal w3-yellow" href="/">Головна</a>
+      <div class="item-container">
+        <a class="item-btn item-red" href="/car_dealer_portal/register/">Зареєструйтесь як кухар</a>
+        <a class="item-btn item-teal item-yellow" href="/">Головна</a>
       </div>
   </div>
 </div>

@@ -3,24 +3,24 @@
 <head>
   <title>Система прокату Столикив</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mainStyle.css' %}">
 </head>
 <body>
-  <div class="w3-container w3-teal">
-    <h1 class="w3-center">Смачнісімо<h1>
+  <div class="item-container item-teal">
+    <h1 class="item-center">Смачнісімо<h1>
   </div>
-  <div class="w3-center w3-bar w3-orange w3-large">Всі страви на всі смаки</div><br><br>
-  <div class="w3-display-container " style="height:400px;">
-    <div class="w3-display-middle w3-padding-large" style='color: 6f00ff'>
-  <div class="w3-center w3-bar  w3-xxxlarge w3-padding-16">
+  <div class="item-center item-bar item-orange item-large">Всі страви на всі смаки</div><br><br>
+  <div class="item-display-container " style="height:400px;">
+    <div class="item-display-middle item-padding-large" style='color: 6f00ff'>
+  <div class="item-center item-bar  item-xxxlarge item-padding-16">
     Завітайте!!!
   </div>
-  <form class="w3-container w3-center" action="/customer_portal/login/" mehtod="POST">{% csrf_token %}
-    <input class="w3-pale-red w3-btn w3-large w3-padding-16" type="submit" value="Ввійти як клієнт">
+  <form class="item-container item-center" action="/customer_portal/login/" mehtod="POST">{% csrf_token %}
+    <input class="item-pale-red item-btn item-large item-padding-16" type="submit" value="Ввійти як клієнт">
   </form>
 <br>
-  <form class="w3-container w3-center" action="/car_dealer_portal/login/" method="POST">{% csrf_token %}
-    <input class="w3-btn w3-pale-red w3-large w3-padding-16" type="submit" value="Ввійти як кухар">
+  <form class="item-container item-center" action="/car_dealer_portal/login/" method="POST">{% csrf_token %}
+    <input class="item-btn item-pale-red item-large item-padding-16" type="submit" value="Ввійти як кухар">
   <form>
   </div>
 </div>
