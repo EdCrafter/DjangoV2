@@ -1,19 +1,30 @@
-
-{% extends 'customer/base.html' %}
-{% block content %}
-{% load static %}
+{% extends 'customer/base.html' %} {% block content %} {% load static %}
 <div class="w3-bar w3-large">
-  <a class="w3-bar-item w3-btn w3-teal w3-left" href="/customer_portal/logout/">Вихід із системи</a>
-  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/manage/">Керувати</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-left" href="/customer_portal/logout/"
+    >Вийти</a
+  >
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/customer_portal/manage/"
+    >Переглянути заброньоване</a
+  >
 </div>
-<div class="w3-bar-item w3-center w3-center w3-white-text">Вітаю {{user.username}} !!!</div>
-
-<div class="w3-container w3-center w3-large" style="padding:20px;">Ласкаво просимо, мандрівник, ти будеш водити автомобіль своєї мрії!</div>
-
-<div class="w3-display-container w3-center" style="height:500px;padding:20px;">
-<img src="{% static "images/car-pics.jpg" %}">
-<div class="w3-display-middle">
-<a class="w3-btn w3-red w3-xlarge" href="/customer_portal/search/"><b>Пошук орендованих автомобілів</b></a>
+<div class="w3-bar-item w3-center w3-white-text w3-xxlarge">
+  Вітаю {{user.username}} !!!
 </div>
+
+<div class="w3-flex-center">
+  <div class="w3-center w3-red w3-xxlarge" style="width:450px">
+   Схема кафе
+  </div>
+</div>
+<div
+  class="w3-center"
+  style="height: 500px; padding: 20px"
+>
+  <img src="{% static 'images/cafe-scheme.jpg' %}">
+</div>
+<div>
+  <a class="w3-btn w3-yellow w3-xlarge" href="/customer_portal/search/"
+    ><b>Забронюйте столик вже сьогодні</b></a
+  >
 </div>
 {% endblock %}

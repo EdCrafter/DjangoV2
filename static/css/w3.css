@@ -805,6 +805,10 @@ a {
   -ms-transform: translate(-50%, -50%);
   background-color: #3bfafa78;
 }
+
+.w3-transblue{
+  background-color: #3bfafaba;
+}
 .w3-display-left {
   position: absolute;
   top: 50%;
@@ -818,6 +822,7 @@ a {
   right: 0%;
   transform: translate(0%, -50%);
   -ms-transform: translate(0%, -50%);
+  margin-right: 40px;
 }
 .w3-display-topmiddle {
   position: absolute;
@@ -1088,6 +1093,10 @@ a {
 .w3-justify {
   text-align: justify !important;
 }
+.w3-flex-center{
+  display: flex;
+  justify-content: center;
+}
 .w3-center {
   text-align: center !important;
 }
@@ -1333,8 +1342,7 @@ a {
 }
 .w3-white-text {
   color: #01ffc1;
-  font-size: 22px;
-  text-shadow: 0px -2px 5px black;
+  text-shadow: -2px 0px 2px #000560;
 }
 .w3-pale-red,
 .w3-hover-pale-red:hover {
