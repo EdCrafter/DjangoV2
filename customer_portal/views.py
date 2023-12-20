@@ -51,7 +51,7 @@ def registration(request):
     email = request.POST['email']
     city = request.POST['city']
     city = city.lower()
-    pincode = request.POST['pincode']
+    pincode = request.POST['date']
     try:
         user = User.objects.create_user(username = username, password = password, email = email)
         user.first_name = firstname
@@ -88,7 +88,7 @@ def search_results(request):
         vehicles = Vehicles.objects.filter(area = a)
         for car in vehicles:
             if car.is_available == True:
-                vehicle_dictionary = {'name':car.table_name, 'shape':car.color, 'id':car.id, 'pincode':car.area.pincode, 'capacity':car.capacity, 'description':car.description}
+                vehicle_dictionary = {'name':car.table_name, 'shape':car.color, 'id':car.id, 'date':car.area.pincode, 'seats':car.capacity, 'size':car.description}
                 vehicles_list.append(vehicle_dictionary)
     request.session['vehicles_list'] = vehicles_list
     return render(request, 'customer/search_results.html')

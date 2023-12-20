@@ -52,7 +52,7 @@ def registration(request):
     email = request.POST['email']
     city = request.POST['city']
     city = city.lower()
-    pincode = request.POST['pincode']
+    pincode = request.POST['date']
 
     try:
         user = User.objects.create_user(username = username, password = password, email = email)
@@ -82,9 +82,9 @@ def add_vehicle(request):
     cd = CarDealer.objects.get(car_dealer=request.user)
     city = request.POST['city']
     city = city.lower()
-    pincode = request.POST['pincode']
-    description = request.POST['description']
-    capacity = request.POST['capacity']
+    pincode = request.POST['date']
+    description = request.POST['size']
+    capacity = request.POST['seats']
     try:
         area = Area.objects.get(city = city, pincode = pincode)
     except:
