@@ -2,11 +2,7 @@ from django.db import models
 from django.db import models
 from django.core.validators import *
 from django.contrib.auth.models import User
-<<<<<<< HEAD
 from chef_m_portal.models import *
-=======
-from chef_portal.models import *
->>>>>>> b9cc3765ce8c190e81092c2d031994f7577414ba
 
 
 class Customer(models.Model):
@@ -16,11 +12,7 @@ class Customer(models.Model):
 
 class Orders(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-<<<<<<< HEAD
     chef_m = models.ForeignKey(CarDealer, on_delete=models.PROTECT)
-=======
-    chef = models.ForeignKey(CarDealer, on_delete=models.PROTECT)
->>>>>>> b9cc3765ce8c190e81092c2d031994f7577414ba
     rent = models.CharField(max_length=8)
     vehicle = models.ForeignKey(Vehicles, on_delete=models.PROTECT)
     days = models.CharField(max_length = 3)
