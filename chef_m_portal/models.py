@@ -16,9 +16,9 @@ class CarDealer(models.Model):
 
 class Vehicles(models.Model):
     table_name = models.CharField(max_length = 20)
-    color = models.CharField(max_length = 10)
+    shape = models.CharField(max_length = 10)
     dealer = models.ForeignKey(CarDealer, on_delete = models.PROTECT)
     area = models.ForeignKey(Area, on_delete=models.SET_NULL, null = True)
-    capacity = models.CharField(max_length = 2)
+    seats = models.CharField(max_length = 2)
     is_available = models.BooleanField(default = True)
-    description = models.CharField(max_length = 100)
+    size = models.CharField(max_length = 100)

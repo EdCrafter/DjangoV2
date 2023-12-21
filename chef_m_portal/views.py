@@ -83,25 +83,25 @@ def registration(request):
 @login_required
 def add_vehicle(request):
     table_name = request.POST['table_name']
-    color = request.POST['shape']
+    shape = request.POST['shape']
     cd = CarDealer.objects.get(chef_m=request.user)
 
     city = request.POST['city']
     city = city.lower()
     date = request.POST['date']
-    description = request.POST['size']
-    capacity = request.POST['seats']
+    size = request.POST['size']
+    seats = request.POST['seats']
     try:
         area = Area.objects.get(city = city, date = date)
     except:
         area = None
     if area is not None:
-        car = Vehicles(table_name=table_name, color=color, dealer=cd, area = area, description = description, capacity=capacity)
+        car = Vehicles(table_name=table_name, shape=shape, dealer=cd, area = area, size = size, seats=seats)
     else:
         area = Area(city = city, date = date)
         area.save()
         area = Area.objects.get(city = city, date = date)
-        car = Vehicles(table_name=table_name, color=color, dealer=cd, area = area,description=description, capacity=capacity)
+        car = Vehicles(table_name=table_name, shape=shape, dealer=cd, area = area,size=size, seats=seats)
     car.save()
     return render(request, 'chef_m/vehicle_added.html')
 

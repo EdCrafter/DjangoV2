@@ -88,7 +88,7 @@ def search_results(request):
         vehicles = Vehicles.objects.filter(area = a)
         for car in vehicles:
             if car.is_available == True:
-                vehicle_dictionary = {'name':car.table_name, 'shape':car.color, 'id':car.id, 'date':car.area.date, 'seats':car.capacity, 'size':car.description}
+                vehicle_dictionary = {'name':car.table_name, 'shape':car.shape, 'id':car.id, 'date':car.area.date, 'seats':car.seats, 'size':car.size}
                 vehicles_list.append(vehicle_dictionary)
     request.session['vehicles_list'] = vehicles_list
     return render(request, 'customer/search_results.html')
@@ -98,7 +98,7 @@ def search_results(request):
 def rent_vehicle(request):
     id = request.POST['id']
     vehicle = Vehicles.objects.get(id = id)
-    cost_per_day = int(vehicle.capacity)*13
+    cost_per_day = int(vehicle.seats)*13
     return render(request, 'customer/confirmation.html', {'vehicle':vehicle, 'cost_per_day':cost_per_day})
 
 @login_required
@@ -110,7 +110,7 @@ def confirm(request):
     vehicle = Vehicles.objects.get(id = vehicle_id)
     if vehicle.is_available:
         chef_m = vehicle.dealer
-        rent = (int(vehicle.capacity))*13*(int(days))
+        rent = (int(vehicle.seats))*13*(int(days))
         chef_m.wallet += rent
         chef_m.save()
         try:
@@ -150,7 +150,7 @@ def update_order(request):
     chef_m.wallet -= int(order.rent)
     chef_m.save()
     order.delete()
-    cost_per_day = int(vehicle.capacity)*13
+    cost_per_day = int(vehicle.seats)*13
     return render(request, 'customer/confirmation.html', {'vehicle':vehicle}, {'cost_per_day':cost_per_day})
 
 @login_required

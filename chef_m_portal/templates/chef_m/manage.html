@@ -24,8 +24,8 @@
   {% for vehicle in vehicle_list %}
   <tr>
       <td>{{vehicle.table_name}}</td>
-      <td>{{vehicle.color}}</td>
-      <td>{{vehicle.capacity}}   </td>
+      <td>{{vehicle.shape}}</td>
+      <td>{{vehicle.seats}}   </td>
       <td>{{vehicle.area.date}}</td>
       <td>{{vehicle.area.city}}</td>
       <td><form action = "/chef_m_portal/delete/" method="post">
