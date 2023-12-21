@@ -12,8 +12,8 @@ class Customer(models.Model):
 
 class Orders(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    chef_m = models.ForeignKey(CarDealer, on_delete=models.PROTECT)
+    chef_m = models.ForeignKey(manager, on_delete=models.PROTECT)
     rent = models.CharField(max_length=8)
-    vehicle = models.ForeignKey(Vehicles, on_delete=models.PROTECT)
+    table = models.ForeignKey(tables, on_delete=models.PROTECT)
     days = models.CharField(max_length = 3)
     is_complete = models.BooleanField(default = False)

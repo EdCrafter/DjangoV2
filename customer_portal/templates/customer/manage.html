@@ -21,12 +21,12 @@
   </tr>
   {% for order in od %}
   <tr>
-    <td>{{order.vehicle.table_name}}</td>
+    <td>{{order.table.table_name}}</td>
     <td>{{order.days}}</td>
     <td>${{order.rent}}</td>
-    <td>{{order.vehicle.seats}}  </td>
-    <td>{{order.vehicle.size}}</td>
-    <td>{{order.vehicle.area.date}}</td>
+    <td>{{order.table.seats}}  </td>
+    <td>{{order.table.size}}</td>
+    <td>{{order.table.area.date}}</td>
     <td>
       <form action = "/customer_portal/delete/" method="post">
       {% csrf_token %}

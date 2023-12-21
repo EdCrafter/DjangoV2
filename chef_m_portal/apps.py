@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class CarDealerPortalConfig(AppConfig):
+class managerPortalConfig(AppConfig):
     name = 'chef_m_portal'

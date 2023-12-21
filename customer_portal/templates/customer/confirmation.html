@@ -8,13 +8,13 @@
   <a class="item-ber-item item-btn item-teal item-right" href="/customer_portal/search/">Бронювати столик</a>
 </div>
 <div class="item-containet item-center" style="padding:100px  ">
-<b class="item-orange item-xxlarge" style="padding:3px 15px">Ваш столик - {{vehicle.table_name}}</b>
+<b class="item-orange item-xxlarge" style="padding:3px 15px">Ваш столик - {{table.table_name}}</b>
 <form class="item-container item-form" action="/customer_portal/confirmed/" method="post">
   {% csrf_token %}
   <b class="item-pale-red" >Ціна за годину : ${{cost_per_day}}</b><br><br>
   <lable>На скільки часу :</lable> <input type="text" placeholder="1hour" name="days"><br><br>
   <input class="item-btn item-red" type="submit"  value="Підтвердьте замовлення"><br><br>
-  <input type="hidden" value="{{vehicle.id}}" name="id">
+  <input type="hidden" value="{{table.id}}" name="id">
   <br><br>
 </from>
 </div>

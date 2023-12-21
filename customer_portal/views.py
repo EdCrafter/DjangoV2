@@ -82,44 +82,44 @@ def search(request):
 def search_results(request):
     city = request.POST['city']
     city = city.lower()
-    vehicles_list = []
+    tables_list = []
     area = Area.objects.filter(city = city)
     for a in area:
-        vehicles = Vehicles.objects.filter(area = a)
-        for car in vehicles:
-            if car.is_available == True:
-                vehicle_dictionary = {'name':car.table_name, 'shape':car.shape, 'id':car.id, 'date':car.area.date, 'seats':car.seats, 'size':car.size}
-                vehicles_list.append(vehicle_dictionary)
-    request.session['vehicles_list'] = vehicles_list
+        tables = tables.objects.filter(area = a)
+        for tableO in tables:
+            if tableO.is_available == True:
+                table_dictionary = {'name':tableO.table_name, 'shape':tableO.shape, 'id':tableO.id, 'date':tableO.area.date, 'seats':tableO.seats, 'size':tableO.size}
+                tables_list.append(table_dictionary)
+    request.session['tables_list'] = tables_list
     return render(request, 'customer/search_results.html')
 
 
 @login_required
-def rent_vehicle(request):
+def rent_table(request):
     id = request.POST['id']
-    vehicle = Vehicles.objects.get(id = id)
-    cost_per_day = int(vehicle.seats)*13
-    return render(request, 'customer/confirmation.html', {'vehicle':vehicle, 'cost_per_day':cost_per_day})
+    table = tables.objects.get(id = id)
+    cost_per_day = int(table.seats)*13
+    return render(request, 'customer/confirmation.html', {'table':table, 'cost_per_day':cost_per_day})
 
 @login_required
 def confirm(request):
-    vehicle_id = request.POST['id']
+    table_id = request.POST['id']
     username = request.user
     user = User.objects.get(username = username)
     days = request.POST['days']
-    vehicle = Vehicles.objects.get(id = vehicle_id)
-    if vehicle.is_available:
-        chef_m = vehicle.dealer
-        rent = (int(vehicle.seats))*13*(int(days))
+    table = tables.objects.get(id = table_id)
+    if table.is_available:
+        chef_m = table.people
+        rent = (int(table.seats))*13*(int(days))
         chef_m.wallet += rent
         chef_m.save()
         try:
-            order = Orders(vehicle = vehicle, chef_m = chef_m, user = user, rent=rent, days=days)
+            order = Orders(table = table, chef_m = chef_m, user = user, rent=rent, days=days)
             order.save()
         except:
-            order = Orders.objects.get(vehicle = vehicle, chef_m = chef_m, user = user, rent=rent, days=days)
-        vehicle.is_available = False
-        vehicle.save()
+            order = Orders.objects.get(table = table, chef_m = chef_m, user = user, rent=rent, days=days)
+        table.is_available = False
+        table.save()
         return render(request, 'customer/confirmed.html', {'order':order})
     else:
         return render(request, 'customer/order_failed.html')
@@ -135,7 +135,7 @@ def manage(request):
     if orders is not None:
         for o in orders:
             if o.is_complete == False:
-                order_dictionary = {'id':o.id,'rent':o.rent, 'vehicle':o.vehicle, 'days':o.days, 'chef_m':o.chef_m}
+                order_dictionary = {'id':o.id,'rent':o.rent, 'table':o.table, 'days':o.days, 'chef_m':o.chef_m}
                 order_list.append(order_dictionary)
     return render(request, 'customer/manage.html', {'od':order_list})
 
@@ -143,15 +143,15 @@ def manage(request):
 def update_order(request):
     order_id = request.POST['id']
     order = Orders.objects.get(id = order_id)
-    vehicle = order.vehicle
-    vehicle.is_available = True
-    vehicle.save()
+    table = order.table
+    table.is_available = True
+    table.save()
     chef_m = order.chef_m
     chef_m.wallet -= int(order.rent)
     chef_m.save()
     order.delete()
-    cost_per_day = int(vehicle.seats)*13
-    return render(request, 'customer/confirmation.html', {'vehicle':vehicle}, {'cost_per_day':cost_per_day})
+    cost_per_day = int(table.seats)*13
+    return render(request, 'customer/confirmation.html', {'table':table}, {'cost_per_day':cost_per_day})
 
 @login_required
 def delete_order(request):
@@ -160,8 +160,8 @@ def delete_order(request):
     chef_m = order.chef_m
     chef_m.wallet -= int(order.rent)
     chef_m.save()
-    vehicle = order.vehicle
-    vehicle.is_available = True
-    vehicle.save()
+    table = order.table
+    table.is_available = True
+    table.save()
     order.delete()
     return HttpResponseRedirect('/customer_portal/manage/')

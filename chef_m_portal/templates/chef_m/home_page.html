@@ -7,7 +7,7 @@
   <div class="item-bar-item item-left item-green">Кухар: {{user.username}}</div>
   <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/logout/">Вийти</a>
   <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/order_list/">Замовлення</a>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/manage_vehicles/">Столики</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/manage_tables/">Столики</a>
   <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/history/">Прибуток</a>
 
 </div>
@@ -18,7 +18,7 @@
 <h3 class="item-container item-bar item-yellow item-large" style="padding:8px"><center>Додайте столик<center></h3>
 
 
-<form class="item-container  item-transblue" action="/chef_m_portal/add_vehicle/" method="post">{% csrf_token %}
+<form class="item-container  item-transblue" action="/chef_m_portal/add_table/" method="post">{% csrf_token %}
   <lable>Номер :</lable> <input class="item-input" type="text" name="table_name"><br><br>
   <lable>Форма :</lable> <input class="item-input" type="text" name="shape"><br><br>
   <lable>Адреса :</lable> <input class="item-input" type="text" name="city"><br><br>

@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib import auth
-
 from chef_m_portal.models import *
 
 from customer_portal.models import *
@@ -30,7 +29,7 @@ def auth_view(request):
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         try:
-            chef_m = CarDealer.objects.get(chef_m = user)
+            chef_m = manager.objects.get(chef_m = user)
         except:
             chef_m = None
         if chef_m is not None:
@@ -71,20 +70,20 @@ def registration(request):
     except:
         area = None
     if area is not None:
-        chef_m = CarDealer(chef_m = user, mobile = mobile, area=area)
+        chef_m = manager(chef_m = user, mobile = mobile, area=area)
     else:
         area = Area(city = city, date = date)
         area.save()
         area = Area.objects.get(city = city, date = date)
-        chef_m = CarDealer(chef_m = user, mobile = mobile, area=area)
+        chef_m = manager(chef_m = user, mobile = mobile, area=area)
     chef_m.save()
     return render(request, 'chef_m/registered.html')
 
 @login_required
-def add_vehicle(request):
+def add_table(request):
     table_name = request.POST['table_name']
     shape = request.POST['shape']
-    cd = CarDealer.objects.get(chef_m=request.user)
+    cd = manager.objects.get(chef_m=request.user)
 
     city = request.POST['city']
     city = city.lower()
@@ -96,32 +95,32 @@ def add_vehicle(request):
     except:
         area = None
     if area is not None:
-        car = Vehicles(table_name=table_name, shape=shape, dealer=cd, area = area, size = size, seats=seats)
+        tableO = tables(table_name=table_name, shape=shape, people=cd, area = area, size = size, seats=seats)
     else:
         area = Area(city = city, date = date)
         area.save()
         area = Area.objects.get(city = city, date = date)
-        car = Vehicles(table_name=table_name, shape=shape, dealer=cd, area = area,size=size, seats=seats)
-    car.save()
-    return render(request, 'chef_m/vehicle_added.html')
+        tableO = tables(table_name=table_name, shape=shape, people=cd, area = area,size=size, seats=seats)
+    tableO.save()
+    return render(request, 'chef_m/table_added.html')
 
 
 @login_required
-def manage_vehicles(request):
+def manage_tables(request):
     username = request.user
     user = User.objects.get(username = username)
-    chef_m = CarDealer.objects.get(chef_m = user)
-    vehicle_list = []
-    vehicles = Vehicles.objects.filter(dealer = chef_m)
-    for v in vehicles:
-        vehicle_list.append(v)
-    return render(request, 'chef_m/manage.html', {'vehicle_list':vehicle_list})
+    chef_m = manager.objects.get(chef_m = user)
+    table_list = []
+    tables1 = tables.objects.filter(people = chef_m)
+    for v in tables1:
+        table_list.append(v)
+    return render(request, 'chef_m/manage.html', {'table_list':table_list})
 
 @login_required
 def order_list(request):
     username = request.user
     user = User.objects.get(username = username)
-    chef_m = CarDealer.objects.get(chef_m = user)
+    chef_m = manager.objects.get(chef_m = user)
     orders = Orders.objects.filter(chef_m = chef_m)
 
     order_list = []
@@ -136,11 +135,11 @@ def order_list(request):
 def complete(request):
     order_id = request.POST['id']
     order = Orders.objects.get(id = order_id)
-    vehicle = order.vehicle
+    table = order.table
     order.is_complete = True
     order.save()
-    vehicle.is_available = True
-    vehicle.save()
+    table.is_available = True
+    table.save()
     return HttpResponseRedirect('/chef_m_portal/order_list/')
 
 
@@ -148,7 +147,7 @@ def complete(request):
 @login_required
 def history(request):
     user = User.objects.get(username = request.user)
-    chef_m = CarDealer.objects.get(chef_m = user)
+    chef_m = manager.objects.get(chef_m = user)
     orders = Orders.objects.filter(chef_m = chef_m)
     order_list = []
     for o in orders:
@@ -159,7 +158,7 @@ def history(request):
 @login_required
 def delete(request):
     veh_id = request.POST['id']
-    vehicle = Vehicles.objects.get(id = veh_id)
-    vehicle.delete()
-    return HttpResponseRedirect('/chef_m_portal/manage_vehicles/')
+    table = tables.objects.get(id = veh_id)
+    table.delete()
+    return HttpResponseRedirect('/chef_m_portal/manage_tables/')
 

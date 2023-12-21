@@ -9,7 +9,7 @@ urlpatterns = [
     path('registration/',registration),
     path('search/',search),
     path('search_results/',search_results),
-    path('rent/',rent_vehicle),
+    path('rent/',rent_table),
     path('confirmed/',confirm),
     path('manage/',manage),
     path('update/',update_order),

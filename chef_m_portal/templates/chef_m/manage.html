@@ -6,7 +6,7 @@
   <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/logout/">Вийти</a>
   <a class="item-bar-item item-btn item-teal item-right item-pale-yellow " href="/chef_m_portal/auth/">Головна</a>
   <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/order_list/">Замовлення</a>
-  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/manage_vehicles/">Столики</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/manage_tables/">Столики</a>
   <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/history/">Прибуток</a>
 </div>
 <h3 class="item-center" style="padding-top:30"><b class="item-pale-green">Розміщені столики</b></h3>
@@ -21,16 +21,16 @@
     <th style="padding:20;">Адреса</th>
     <th style="padding:20;">Прибрати</th>
   </tr>
-  {% for vehicle in vehicle_list %}
+  {% for table in table_list %}
   <tr>
-      <td>{{vehicle.table_name}}</td>
-      <td>{{vehicle.shape}}</td>
-      <td>{{vehicle.seats}}   </td>
-      <td>{{vehicle.area.date}}</td>
-      <td>{{vehicle.area.city}}</td>
+      <td>{{table.table_name}}</td>
+      <td>{{table.shape}}</td>
+      <td>{{table.seats}}   </td>
+      <td>{{table.area.date}}</td>
+      <td>{{table.area.city}}</td>
       <td><form action = "/chef_m_portal/delete/" method="post">
         {% csrf_token %}
-        <input type="hidden" name="id" value="{{vehicle.id}}">
+        <input type="hidden" name="id" value="{{table.id}}">
         <input class="item-btn item-red" type="submit" value="Видалити">
       </form></td>
   </tr>
