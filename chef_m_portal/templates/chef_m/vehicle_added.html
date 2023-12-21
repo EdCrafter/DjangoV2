@@ -1,0 +1,19 @@
+{% extends 'chef_m/base.html' %}
+{% block content %}
+{% csrf_token %}
+<div class="item-bar item-large item-flex-center">
+  <div class="item-bar-item item-left item-green">Кухар: {{user.username}}</div>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/logout/">Вийти</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow " href="/chef_m_portal/auth/">Головна</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/order_list/">Замовлення</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/manage_vehicles/">Столики</a>
+  <a class="item-bar-item item-btn item-teal item-right item-pale-yellow" href="/chef_m_portal/history/">Прибуток</a>
+</div>
+
+<div class="item-display-container" style="height:300px;">
+  <div class="item-display-middle item-green">
+    Додані відомості про столик! <br><br>
+    <a href="/chef_m_portal/index/">Повернутись до головної сторінки</a>
+</div>
+</div>
+{% endblock %}
