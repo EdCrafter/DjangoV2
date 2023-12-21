@@ -23,20 +23,22 @@
       </th style="padding:20">
     </tr>
     {% for vehicle in request.session.vehicles_list %}
-    <tr>
-      <td>{{vehicle.name}}</td>
-      <td>{{vehicle.color}}</td>
-      <td>{{vehicle.capacity}}</td>
-      <td>{{vehicle.description}}</td>
-      <td>{{vehicle.pincode}}</td>
-      <td><form action = "/customer_portal/rent/" method="post">
-        {% csrf_token %}
-        <input type="hidden" name="id" value="{{vehicle.id}}">
-        <input class="item-btn item-green" type="submit" value="Бронювання">
-        </form></td>
-    </tr>
+<tr>
+  <td>{{ vehicle.name }}</td>
+  <td>{{ vehicle.shape }}</td>
+  <td>{{ vehicle.seats }}</td>
+  <td>{{ vehicle.size }}</td>
+  <td>{{ vehicle.date }}</td>
+  <td>
+    <form action="/customer_portal/rent/" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="id" value="{{ vehicle.id }}">
+      <input class="item-btn item-green" type="submit" value="Бронювання">
+    </form>
+  </td>
+</tr>
+{% endfor %}
 
-  {% endfor %}
   
   
   
