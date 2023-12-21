@@ -56,7 +56,7 @@ def registration(request):
     email = request.POST['email']
     city = request.POST['city']
     city = city.lower()
-    pincode = request.POST['date']
+    date = request.POST['date']
 
     try:
         user = User.objects.create_user(username = username, password = password, email = email)
@@ -67,15 +67,15 @@ def registration(request):
         return render(request, 'chef_m/registration_error.html')
 
     try:
-        area = Area.objects.get(city = city, pincode = pincode)
+        area = Area.objects.get(city = city, date = date)
     except:
         area = None
     if area is not None:
         chef_m = CarDealer(chef_m = user, mobile = mobile, area=area)
     else:
-        area = Area(city = city, pincode = pincode)
+        area = Area(city = city, date = date)
         area.save()
-        area = Area.objects.get(city = city, pincode = pincode)
+        area = Area.objects.get(city = city, date = date)
         chef_m = CarDealer(chef_m = user, mobile = mobile, area=area)
     chef_m.save()
     return render(request, 'chef_m/registered.html')
@@ -88,19 +88,19 @@ def add_vehicle(request):
 
     city = request.POST['city']
     city = city.lower()
-    pincode = request.POST['date']
+    date = request.POST['date']
     description = request.POST['size']
     capacity = request.POST['seats']
     try:
-        area = Area.objects.get(city = city, pincode = pincode)
+        area = Area.objects.get(city = city, date = date)
     except:
         area = None
     if area is not None:
         car = Vehicles(table_name=table_name, color=color, dealer=cd, area = area, description = description, capacity=capacity)
     else:
-        area = Area(city = city, pincode = pincode)
+        area = Area(city = city, date = date)
         area.save()
-        area = Area.objects.get(city = city, pincode = pincode)
+        area = Area.objects.get(city = city, date = date)
         car = Vehicles(table_name=table_name, color=color, dealer=cd, area = area,description=description, capacity=capacity)
     car.save()
     return render(request, 'chef_m/vehicle_added.html')
