@@ -15,8 +15,13 @@
 <b>Загальна орендна плата :</b> ${{order.rent}}<br><br>
 <b>столик :</b> {{order.vehicle.table_name}}<br><br>
 <b>Тривалість :</b> {{order.days}} days<br><br>
+<<<<<<< HEAD
 <b>менеджер :</b> {{order.chef_m.chef_m.first_name}} {{order.chef_m.chef_m.last_name}}<br><br>
 <b>Контактна особа Номердилера:</b> {{order.chef_m.mobile}}<br><br>
+=======
+<b>менеджер :</b> {{order.chef.chef.first_name}} {{order.chef.chef.last_name}}<br><br>
+<b>Контактна особа Номердилера:</b> {{order.chef.mobile}}<br><br>
+>>>>>>> b9cc3765ce8c190e81092c2d031994f7577414ba
 </div>
 </div>
 {% endblock %}

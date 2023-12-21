@@ -20,7 +20,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'customer_portal',
+<<<<<<< HEAD
     'chef_m_portal',
+=======
+    'chef_portal',
+>>>>>>> b9cc3765ce8c190e81092c2d031994f7577414ba
     'home',
 
 ]

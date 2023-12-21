@@ -5,7 +5,11 @@ from django.contrib.auth import authenticate
 from django.contrib import auth
 from customer_portal.models import *
 from django.contrib.auth.decorators import login_required
+<<<<<<< HEAD
 from chef_m_portal.models import *
+=======
+from chef_portal.models import *
+>>>>>>> b9cc3765ce8c190e81092c2d031994f7577414ba
 from django.http import HttpResponseRedirect
 
 
@@ -109,6 +113,7 @@ def confirm(request):
     days = request.POST['days']
     vehicle = Vehicles.objects.get(id = vehicle_id)
     if vehicle.is_available:
+<<<<<<< HEAD
         chef_m = vehicle.dealer
         rent = (int(vehicle.capacity))*13*(int(days))
         chef_m.wallet += rent
@@ -118,6 +123,17 @@ def confirm(request):
             order.save()
         except:
             order = Orders.objects.get(vehicle = vehicle, chef_m = chef_m, user = user, rent=rent, days=days)
+=======
+        chef = vehicle.dealer
+        rent = (int(vehicle.capacity))*13*(int(days))
+        chef.wallet += rent
+        chef.save()
+        try:
+            order = Orders(vehicle = vehicle, chef = chef, user = user, rent=rent, days=days)
+            order.save()
+        except:
+            order = Orders.objects.get(vehicle = vehicle, chef = chef, user = user, rent=rent, days=days)
+>>>>>>> b9cc3765ce8c190e81092c2d031994f7577414ba
         vehicle.is_available = False
         vehicle.save()
         return render(request, 'customer/confirmed.html', {'order':order})
@@ -135,7 +151,11 @@ def manage(request):
     if orders is not None:
         for o in orders:
             if o.is_complete == False:
+<<<<<<< HEAD
                 order_dictionary = {'id':o.id,'rent':o.rent, 'vehicle':o.vehicle, 'days':o.days, 'chef_m':o.chef_m}
+=======
+                order_dictionary = {'id':o.id,'rent':o.rent, 'vehicle':o.vehicle, 'days':o.days, 'chef':o.chef}
+>>>>>>> b9cc3765ce8c190e81092c2d031994f7577414ba
                 order_list.append(order_dictionary)
     return render(request, 'customer/manage.html', {'od':order_list})
 
@@ -146,9 +166,15 @@ def update_order(request):
     vehicle = order.vehicle
     vehicle.is_available = True
     vehicle.save()
+<<<<<<< HEAD
     chef_m = order.chef_m
     chef_m.wallet -= int(order.rent)
     chef_m.save()
+=======
+    chef = order.chef
+    chef.wallet -= int(order.rent)
+    chef.save()
+>>>>>>> b9cc3765ce8c190e81092c2d031994f7577414ba
     order.delete()
     cost_per_day = int(vehicle.capacity)*13
     return render(request, 'customer/confirmation.html', {'vehicle':vehicle}, {'cost_per_day':cost_per_day})
@@ -157,9 +183,15 @@ def update_order(request):
 def delete_order(request):
     order_id = request.POST['id']
     order = Orders.objects.get(id = order_id)
+<<<<<<< HEAD
     chef_m = order.chef_m
     chef_m.wallet -= int(order.rent)
     chef_m.save()
+=======
+    chef = order.chef
+    chef.wallet -= int(order.rent)
+    chef.save()
+>>>>>>> b9cc3765ce8c190e81092c2d031994f7577414ba
     vehicle = order.vehicle
     vehicle.is_available = True
     vehicle.save()
