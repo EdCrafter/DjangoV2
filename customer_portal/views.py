@@ -85,8 +85,8 @@ def search_results(request):
     tables_list = []
     area = Area.objects.filter(city = city)
     for a in area:
-        tables = tables.objects.filter(area = a)
-        for tableO in tables:
+        tables1 = tables.objects.filter(area = a)
+        for tableO in tables1:
             if tableO.is_available == True:
                 table_dictionary = {'name':tableO.table_name, 'shape':tableO.shape, 'id':tableO.id, 'date':tableO.area.date, 'seats':tableO.seats, 'size':tableO.size}
                 tables_list.append(table_dictionary)
